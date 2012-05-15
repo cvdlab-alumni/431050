@@ -95,17 +95,17 @@ var re = STRUCT([bottom,upking]);
 //sfera
 var domainsphere = DOMAIN([[0-(PI),PI],[0,2*PI]])([32,32]);
 
-	var mapSphere = function (p){
-		var u = p[0];
-		var v = p[1];
+var mapSphere = function (p){
+	var u = p[0];
+	var v = p[1];
 
-		return [0.3*COS(u)*COS(v), 0.3*COS(u)*SIN(v), 0.3*SIN(u)];	
-	};
-	var sfera = T([2])([3.27])(MAP(mapSphere)(domainsphere));
-	//DRAW(sphere);
+	return [0.3*COS(u)*COS(v), 0.3*COS(u)*SIN(v), 0.3*SIN(u)];	
+};
+var sfera = T([2])([3.27])(MAP(mapSphere)(domainsphere));
+//DRAW(sphere);
 
-	var upqueen = COLOR([0.14,0.14,0.15])(T([0])([3])(STRUCT([base,piedi,colloinf,collosup,testainf,testamed,testasup,sfera,T([2])([0.8])(corpo)])));
-	var regina = STRUCT([upqueen,T([0])([3])(bottom)]);
-	//DRAW(queen);
+var upqueen = COLOR([0.14,0.14,0.15])(T([0])([3])(STRUCT([base,piedi,colloinf,collosup,testainf,testamed,testasup,sfera,T([2])([0.8])(corpo)])));
+var regina = STRUCT([upqueen,T([0])([3])(bottom)]);
+//DRAW(queen);
 
 var scmodel = STRUCT([re,regina]);
