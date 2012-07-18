@@ -87,7 +87,7 @@ for(var i = 0; i < 10; i++){
 
 //DRAW(app);
 
-var basamento = COLOR([0.854,0.741,0.670])(STRUCT([scalino,app,scalinata,basamento_facc,fin_facc,basamento_lat_sin,basamento_lat_dex,basamento_retro,T([2])([0.7])(scalino_basso)]));
+var basamento = COLOR([0.960,0.960,0.862])(STRUCT([scalino,app,scalinata,basamento_facc,fin_facc,basamento_lat_sin,basamento_lat_dex,basamento_retro,T([2])([0.7])(scalino_basso)]));
 //DRAW(basamento);
 
 var pavimento_facc_basso = T([0,1,2])([-4.4,0.1,0.85])(SIMPLEX_GRID([
@@ -232,7 +232,7 @@ var cornice_grande_retro = T([0,1,2])([-4.4,5.8-0.15,3.55])(SIMPLEX_GRID([
 var cornice_grande = STRUCT([cornice_grande_facc,cornice_grande_lat_sin,cornice_grande_lat_des,cornice_grande_retro]);
 //DRAW(cornice_grande);
 
-var corpo_basso = COLOR([0.854,0.741,0.670])(STRUCT([pavimento,cornice_piccola,corpo_basso_muri,corpo_basso_finestre,cornice_grande]));
+var corpo_basso = COLOR([0.960,0.960,0.862])(STRUCT([pavimento,cornice_piccola,corpo_basso_muri,corpo_basso_finestre,cornice_grande]));
 
 //DRAW(corpo_basso);
 
@@ -277,18 +277,13 @@ var corpo_alto_porta_retro = T([0,1,2])([-0.3,5.8-0.15,3.7])(SIMPLEX_GRID([
 	[0.75]
 	]));
 
-var corpo_alto = COLOR([0.854,0.741,0.670])(STRUCT([corpo_alto_muri,corpo_alto_porta_retro,corpo_alto_finestre]));
-
-//DRAW(corpo_alto);
-
-var cornice_alta = COLOR([0.854,0.741,0.670])(T([2])([4.45-2.84])(SCALE([2])([0.8])(cornice_grande)));
+var cornice_alta = T([2])([4.45-2.84])(SCALE([2])([0.8])(cornice_grande));
 
 //DRAW(cornice_alta);
-/*var corpo_alto_facc = T([0,1,2])([-4.3,0.2,0.85])(SIMPLEX_GRID([
-	[-0.95,0.4,-1.3,-3.3,-1.3,0.4,-0.95],
-	[0],
-	[0.5,-1.15,1.2]
-	]));*/
+
+var corpo_alto = COLOR([0.960,0.960,0.862])(STRUCT([corpo_alto_muri,corpo_alto_porta_retro,corpo_alto_finestre,cornice_alta]));
+
+//DRAW(corpo_alto);
 
 var pavimento_interno_avanti = T([0,1,2])([-4.3,0.2,3.55])(SIMPLEX_GRID([
 	[2.45,-3.7,2.45],
@@ -389,7 +384,7 @@ var porte_interno_alto = STRUCT([porte_interno_alto_x,porte_interno_alto_y]);
 var muri_interni_alti = STRUCT([muri_interni_alti_x1,muri_interni_alti_x2,muri_interni_alti_y1,muri_interni_alti_y2,porte_interno_alto]);
 //DRAW(muri_interni_alti);
 
-var interno = COLOR([0.854,0.741,0.670])(STRUCT([pavimento_interno,muri_interni,muri_interni_alti]));
+var interno = COLOR([0.960,0.960,0.862])(STRUCT([pavimento_interno,muri_interni,muri_interni_alti]));
 
 //DRAW(interno);
 
@@ -446,7 +441,7 @@ var colonne_lato_corpo = T([0,1,2])([-1.85,0.4,0.85])(SIMPLEX_GRID([
 
 //DRAW(colonne_lato_corpo);
 
-var colonne_interne = COLOR([0.854,0.741,0.670])(STRUCT([colonne_dietro_basi,colonne_dietro_corpo,colonne_lato_basi,colonne_lato_corpo]));
+var colonne_interne = COLOR([0.960,0.960,0.862])(STRUCT([colonne_dietro_basi,colonne_dietro_corpo,colonne_lato_basi,colonne_lato_corpo]));
 //DRAW(colonne_interne);
 
 var domain = INTERVALS(1)(30);
@@ -565,10 +560,7 @@ var decorazione = STRUCT([simplicialComplex_segm,simplicialComplex_lat_seg_1,sim
 var decorazioni = T([1])([0.1])(STRUCT([T([2])([3.2]),decorazione,T([0])([-1.25]),decorazione,T([0])([2.5]),decorazione]));
 //DRAW(decorazioni);
 
-var facciata = COLOR([0.854,0.741,0.670])(STRUCT([colonne_avanti,facciata_sup,struttura_archi,cornicione_sup_facc,decorazioni]));
-//DRAW(facciata);
-
-// portico
+// loggia
 
 var controlpoints_dietro = [[-0.45,1.9,2.85],[ -0.22,1.9,3.3],[ 0.22,1.9,3.3],[0.45,1.9,2.85]];
 var arco_dietro = BEZIER(S0)(controlpoints_dietro);
@@ -663,8 +655,8 @@ var arco_lat_des = T([0])([-1.95])(MAP(arco_interno_laterale_des)(domain3));
 var volta = T([0])([-1.95])(MAP(BEZIER(S1)([sup_copia_archi_interni_lat,sup_copia_archi_interni_lat_des]))(domain2));
 //DRAW(volta);
 
-var portico = COLOR([0.854,0.741,0.670])(STRUCT([struttura_archi_dietro,arco_lat_sin,arco_lat_des,volta]));
-//DRAW(portico);
+var loggia = COLOR([0.960,0.960,0.862])(STRUCT([struttura_archi_dietro,arco_lat_sin,arco_lat_des,volta,colonne_interne]));
+//DRAW(loggia);
 
 var cornice_piccola_tetto_x = T([0,2])([-4.45,4.57])(SIMPLEX_GRID([
 	[8.9],
@@ -724,7 +716,7 @@ var cornice_grande_tetto = STRUCT([cornice_grande_tetto_x,cornice_grande_tetto_y
 //DRAW(cornice_grande_tetto);
 
 
-var cornice_tetto = COLOR([0.854,0.741,0.670])(T([1])([0.05])(STRUCT([cornice_piccola_tetto,cornice_media_tetto,cornice_grande_tetto])));
+var cornice_tetto = COLOR([0.960,0.960,0.862])(T([1])([0.05])(STRUCT([cornice_piccola_tetto,cornice_media_tetto,cornice_grande_tetto])));
 
 //DRAW(cornice_tetto);
 
@@ -866,15 +858,17 @@ var cornice_media_tetto_facc = T([0,1,2])([-2.5-0.03,-0.03,4.57+0.05])(SIMPLEX_G
 
 //DRAW(cornice_media_tetto_facc);
 
-var cornice_grande_tetto_x = T([0,1,2])([-2.5-0.03-0.04,-0.07,4.57+0.05+0.04])(SIMPLEX_GRID([
+var cornice_grande_tetto_facc = T([0,1,2])([-2.5-0.03-0.04,-0.07,4.57+0.05+0.04])(SIMPLEX_GRID([
 	[5+0.06+0.08],
 	[0.04],
 	[0.03]
 ]));
 
-//DRAW(cornice_grande_tetto_x);
+//DRAW(cornice_grande_tetto_facc);
 
-var cornici_facc = COLOR([0.854,0.741,0.670])(STRUCT([triangolo_facc,cornice_piccola_tetto,cornice_media_tetto,cornice_grande_tetto]));
+var cornice_facc = STRUCT([cornice_piccola_tetto_facc,cornice_media_tetto_facc,cornice_grande_tetto_facc]);
+
+var cornici_facc = COLOR([0.960,0.960,0.862])(STRUCT([cornice_piccola_tetto,cornice_media_tetto,cornice_grande_tetto]));
 //DRAW(cornici_facc);
 
 var finestre_retro = T([0,1,2])([-4.3,5.8-0.05,0.85])(SIMPLEX_GRID([
@@ -937,6 +931,9 @@ var finestre_bas = T([0,1])([-4.3,0.06])(SIMPLEX_GRID([
 var finestre = STRUCT([COLOR([0.678,0.847,0.901,0.5])(STRUCT([finestre_facc,finestre_sin,finestre_des,finestre_retro])),COLOR([0.588,0.294,0])(finestre_bas),finestre_sopra]);
 //DRAW(finestre);
 
-var corpo = (STRUCT([basamento,cornici_facc,corpo_basso,corpo_alto,interno,cornice_alta,colonne_interne,facciata,portico,cornice_tetto]));
+var facciata = COLOR([0.960,0.960,0.862])(STRUCT([cornice_facc,triangolo_facc,colonne_avanti,facciata_sup,struttura_archi,cornicione_sup_facc,decorazioni]));
+//DRAW(facciata);
+
+var corpo = (STRUCT([basamento,cornici_facc,corpo_basso,corpo_alto,interno,facciata,loggia,cornice_tetto]));
 var villa = STRUCT([corpo,finestre,tetto]);
 DRAW(villa);
